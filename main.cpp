@@ -88,12 +88,7 @@ Node* buildHuffman(vector<char> c, vector<int> f, int size){
  
         right = pq.top();
         pq.pop();
- 
-        // Create a new internal node with frequency equal to the
-        // sum of the two nodes frequencies. Make the two extracted
-        // node as left and right children of this new node. Add
-        // this node to the min heap ' ' is a special value for
-        // internal nodes, not used. (used from geeks for geeks)
+
         top = new Node(' ', left->frequency + right->frequency);
  
         top->left = left;
@@ -133,16 +128,10 @@ void *decompressor(void *arg){
   
 }
 
-
 int main(){
   
   // Read the input file and input chars and freq into vectors
-  ifstream input("input2.txt");
-
-  //uncomment this for moodle
-  //string inputFile;
-  //getline(cin, inputFile);
-  //ifstream input(inputFile);
+  ifstream input("input.txt");
   
   string line;
   vector <char> chars;
@@ -174,12 +163,7 @@ int main(){
 
   
   // Read the compressed file and input positions and codes into a map
-  ifstream command("compressed2.txt");
-  
-  //uncomment this for moodle
-  //string compressedFile;
-  //getline(cin, compressedFile);
-  //ifstream command(compressedFile);
+  ifstream command("compressed.txt");
   
   // thread variables
   static vector <Decompress*> t_args;
